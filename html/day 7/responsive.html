@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo reponsive web design</title>
+    <link rel="stylesheet" href="../css/style7.css">
+    <link rel="stylesheet" href="../css/slicknav.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../js/jquery.slicknav.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+			$('#nav_menu').slicknav({prependTo:"#mobile_menu"});
+    	});
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Phần tiêu đề</h1>
+    </header>
+    <nav id="mobile_menu"></nav>
+    <nav id="nav_menu">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Sản phẩm chất lượng</a></li>
+            <li><a href="">Giới thiệu</a>
+                <ul>
+                    <li><a href="">Cafe G7</a></li>
+                    <li><a href="">Cà phê Trung nguyên</a></li>
+                    <li><a href="">Cafe monoca</a></li>
+                    <li><a href="">Cafe Ý</a></li>
+                </ul>
+            
+            </li>
+            <li><a href="">Đối tác</a></li>
+            <li><a href="">Hỗ trợ</a></li>
+        </ul>
+
+    </nav>
+    <main>
+        <section>
+            <img src="../image/linux.png" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, voluptatum impedit dolorem iusto officiis harum adipisci alias nihil at vel nobis fuga, eveniet libero. Voluptate aliquam voluptas explicabo ad enim?
+            Dolorem, at cum nostrum aliquid tenetur quasi repellat. Nam inventore porro eveniet dolores cupiditate deleniti commodi quae at illum ipsam. Corrupti molestiae adipisci quaerat atque architecto vero porro expedita rerum?
+            Rerum tenetur ipsa quae minima nam adipisci vel totam inventore corporis molestias cum asperiores, veritatis minus, aliquam eius repudiandae. Porro aspernatur illo eum nihil obcaecati dolore asperiores aliquid ea repellendus!</p>
+        </section>
+        <aside>
+            <img src="../image/image.png" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quam ut, facere eius, dolore cum vitae veniam cupiditate, iure voluptatum nam officia laudantium reprehenderit! Quia, omnis! Laboriosam, similique voluptatum? Vero.</p>
+        </aside>
+    </main>
+    <footer>
+        <h1>Phần footer</h1>
+    </footer>
+</body>
+</html>
