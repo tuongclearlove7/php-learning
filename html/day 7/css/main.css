@@ -18,15 +18,24 @@ body{
     margin: 0 auto;
 }
 
+.header-container{
+
+    max-width: 1285.6px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
+
 header{
 
     width: 100%;
     height: 80px;
-    padding: 10px 0;
-    border-bottom: 1px solid grey;
-    display: flex;
-   
-    
+    position: fixed;
+    background: white;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    z-index: 1000;
+
 }
 
 
@@ -44,8 +53,8 @@ header{
 
     width: 88%;
     float: left;
-    padding: 15px;
-    margin-left: 70px;
+    padding: 15px 25px;
+    
 
 }
 
@@ -143,6 +152,7 @@ section {
     position: relative;
     height: 200px;
     padding: 0;
+    z-index: 0;
    
 }
 
@@ -193,29 +203,34 @@ nav a{
 .slide{
     width: 100%;
     height: 550px;
+    padding-top: 80px;
 }
 
 .slide img{
 
     width: 100%;
     height: 550px;
+    object-fit: cover;
 }
 
 
-.container-content{
+.course-container{
 
-    max-width: 1100px;
+    max-width: 1200px;
     width: 100%;
+    height: 100%;   
     margin: 0 auto;
+    background-color: snow;
+    clear: both;
+    padding: 0px 0px 100px;
 
 }
 
  main{
 
     width: 100%;
-    height: 100%;
-    background-color: snow;
-    clear: both;
+   
+   
 }
 
 main h1{
@@ -229,7 +244,7 @@ h1 a{
 
     text-decoration: none;
     text-align: center;
-    margin: 424px;
+    margin: 39.5%;
     font-family: "Be Vietnam Pro", Roberto, sans-serif;
     color: #30c6d5;
     font-weight: bold;
@@ -239,6 +254,7 @@ h1 a{
 main a:hover{
 
     opacity: 0.7;
+    
 }
 
 .course-nav{
@@ -246,7 +262,7 @@ main a:hover{
     width: 100%;
     text-align: center;
     padding-top: 40px;
-    padding-bottom: 55px;
+    padding-bottom: 20px;
     height: 25px;
 }
 
@@ -264,9 +280,81 @@ main a:hover{
 .course-nav a:hover{
 
     color: #bb282e;
-    border-bottom: 1px solid #bb282e;
+    border-bottom: 2px solid #bb282e;
 
 }
+
+
+
+.list-courses{
+
+    display: flex;
+     
+}
+
+.courses{
+
+    width: 266.4px;
+    height: 400px;
+    background-color: #c82f35;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    margin: 17px 17px 50px;
+    
+}
+
+.courses:hover{
+
+    opacity: 0.8;
+}
+
+
+
+.courses img{
+
+    height: 280px;
+    width: 100%;
+    border-radius: 15px 15px  0px 0px;
+   
+}
+
+.courses li{
+
+    list-style-type: none;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.courses li a{
+
+    color: white;
+    text-decoration: none;
+    font-family: "Be Vietnam Pro", Roberto, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 20px 8px;
+
+}
+
+.new-container{
+
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    background-color:#c82f35;
+    padding: 30px 0px;
+}
+
+.new-container h1 a{
+
+    text-align: center;
+    font-family: "Be Vietnam Pro", Roberto, sans-serif;
+    color: white;
+    font-size: 30px;
+
+}
+
 
 footer{
 
@@ -303,7 +391,7 @@ footer{
     height: 200px;
     padding-top: 65px;
     position: relative;
-    background-color: aqua;
+    background-color: #c82f35;
     background-image: url("../../image/bg-footer.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -312,24 +400,24 @@ footer{
 
 .left{
 
-    width: 60%;
+    width: 50%;
     height: 136.2px;
     float: left;
+    padding: 0px 0px 0% 10%;
 }
 
 .left img{
 
     width: 221.25px;
-    padding-left: 180px;
+    
 }
 .left p{
 
-    padding-left: 180px;
     padding-top: 10px;
     line-height: 1.2;
     color: #fff;
     font-family: "Be Vietnam Pro", Roberto, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .left p a{
@@ -382,3 +470,30 @@ footer{
     font-size: 25px;
     padding-right: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
