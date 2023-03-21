@@ -1,0 +1,111 @@
+*{
+
+
+    padding: 0px;
+    margin: 0px;
+}
+
+
+html{
+
+    background-color: aliceblue;
+}
+
+
+form{
+
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: aqua;
+    margin-top: 200px;
+    padding: 30px;
+    border-radius: 25px;
+    font-family: sans-serif;
+    border: 1px solid gray;
+}
+
+label{
+
+    width: 150px;
+    float: left;
+    padding: 5px 0px;
+}
+
+
+
+.group-input{
+
+    clear: both;
+}
+
+
+.group-input input{
+
+    width: 200px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid grey;
+    margin: 5px 0px;
+}
+
+.group-input input[type="checkbox"]{
+
+    width: 30px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+
+button{
+
+    width: 100px;
+    padding: 5px;
+    font-size: 18px;
+    margin-left: 200px;
+    border-radius: 5px;
+    outline : none;
+    border: 1px solid gray;
+    background-color: silver;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
