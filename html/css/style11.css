@@ -1,0 +1,17 @@
+body{
+    max-width: 1130px;
+    width: 100%;
+    margin:30px auto;
+}
+table{
+    border: 1px solid blue;
+    border-collapse: collapse;
+}
+table td{
+    border: 1px solid blue;
+    padding:5px;
+}
+table th{
+    border: 1px solid blue;
+    padding:5px;
+}
