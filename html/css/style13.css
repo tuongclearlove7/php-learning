@@ -1,0 +1,38 @@
+
+*{
+
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.logo img{
+
+    width: 220px;
+}
+
+.rigister button{
+
+    width: 150px;
+    margin-left: 25px;
+    margin-top: 0px;
+}
+
+section .row button{
+
+
+    margin-top: 20px;
+    width: 735px;
+}
+
+
+footer{
+
+    margin-top: 200px;
+}
