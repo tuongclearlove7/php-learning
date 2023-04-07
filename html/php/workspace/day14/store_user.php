@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="../css/style2.css">
 </head>
 <body>
 
@@ -28,7 +28,7 @@
 			</div>
 			
 			<div class="banner">
-				<img src="./image/php1.png" alt="">
+				<img src="../image/php1.png" alt="">
 			</div>
 
 		</header>

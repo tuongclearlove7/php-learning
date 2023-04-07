@@ -69,6 +69,27 @@ main .var h2{
     color: rgb(55, 51, 51);
 }
 
+.form-user{
+
+    padding-top: 30px;
+    text-align: start;
+}
+
+.form-user form{
+
+    max-width: 500px;
+    
+}
+
+form input[type="text"]{
+
+    width: 500px;
+}
+
+.form-user form button{
+    /* margin: auto 175px; */
+    width: 150px;
+}
 
 
 
