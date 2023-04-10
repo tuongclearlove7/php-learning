@@ -91,5 +91,30 @@ form input[type="text"]{
     width: 150px;
 }
 
+.mb-3 p{
+
+    color: red;
+    padding: 5px;
+}
+
+
+.message h3{
+
+    padding-top: 20px;
+}
+
+.result{
+
+    padding-top: 10px;
+}
+
+
+
+
+
+
+
+
+
 
 
