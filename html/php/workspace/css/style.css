@@ -73,6 +73,8 @@ main .var h2{
 
     padding-top: 30px;
     text-align: start;
+    float: left;
+    width: 50%;
 }
 
 .form-user form{
@@ -109,12 +111,49 @@ form input[type="text"]{
 }
 
 
+.res{
 
+    padding: 30px 0px;
+}
+.res p{
 
+    color:red;
+}
 
+table{
 
+    border-collapse: collapse;
+    border: 4px solid black;
+}
 
+td{
 
+    border: 1px solid black;
+    padding: 20px;
+}
 
+.black{
 
+    background-color: gray;
+}
 
+.white{
+
+    background-color: bisque;
+}
+
+.nation-block{
+    padding: 35px;
+}
+
+.nation-block img{
+
+    width: 300px;
+    height: 200px;
+}
+
+.nation-block{
+
+    float: left;
+    width: 50%;
+}
