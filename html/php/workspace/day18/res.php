@@ -66,7 +66,6 @@ require('./split_string.php');
 
                 </select>
                 
-
                 <button type="submit" name="submit" class="btn btn-primary">Kiểm tra</button>
             </form>
             <div class="res"><p><?php echo $res;?></p></div>
