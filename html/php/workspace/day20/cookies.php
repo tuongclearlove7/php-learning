@@ -43,7 +43,7 @@ switch ($action) {
                 setcookie($name,$value,time()+5*60*60,'/');
             }
 
-            //echo "Chào mừng bạn đã đăng nhập thành công";
+            //echo "Chào mừng $username đã đăng nhập thành công";
             include('./login_success.php');
         }
         else{

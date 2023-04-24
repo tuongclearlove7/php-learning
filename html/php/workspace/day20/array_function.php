@@ -14,7 +14,7 @@ $list_student = [
     ['id'=>4,'name'=>'Hoa Kỳ','IP'=>'098765432','avatar'=>'my.png'],
     ['id'=>5,'name'=>'Nga','IP'=>'098765432','avatar'=>'nga.jpg'],
     ['id'=>6,'name'=>'Trung Quốc','IP'=>'098765432','avatar'=>'china.png'],
-    ['id'=>7,'name'=>'Bồ Đào Nha','IP'=>'098765432','avatar'=>'vietnam.png'],
+    ['id'=>7,'name'=>'Bồ Đào Nha','IP'=>'098765432','avatar'=>'bo_dao_nha.png'],
 ];
 
 $action = filter_input(INPUT_POST,'action'); //Tương đương $_POST['action]

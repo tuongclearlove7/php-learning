@@ -9,7 +9,7 @@
 
 .container{
 
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
 
 }
@@ -166,10 +166,20 @@ td{
     height: 90px;
     border-radius:100%;
 }
+.card img{
+    height: 170px;
+}
 
+.card{
 
+    margin: 10px;
+}
 
+.nation-container{
 
+    max-width: 100%;
+    margin: 0 auto;
+}
 
 
 
