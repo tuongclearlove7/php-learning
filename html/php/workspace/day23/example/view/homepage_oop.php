@@ -46,12 +46,43 @@
     </nav>   
     
      <main>
-        <h2>Chào mừng các bạn đến trang thế giới di động của chúng tôi</h2>
+        <h2>Chào mừng các bạn đến trang web chúng tôi</h2>
      </main>
-    <div class="list-product">
-        <?php
-            include('list_product.php');
-        ?>
+    <div class="list-student">
+       <div class="table-responsive">
+        <table class="table table-striped
+        table-hover	
+        table-borderless
+        table-primary
+        align-middle">
+            <thead class="table-light">
+                <caption>Danh sách sinh viên</caption>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Image</th>
+                    <th>Address</th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                <?php foreach ($list_obj_student as $key => $value):?>               
+                    <tr class="table-primary" >
+                        <td scope="row"><?php echo $value->getId()?></td>
+                        <td><?php echo $value->getName()?></td>
+                        <td><?php echo $value->getPhone()?></td>
+                        <td><?php echo $value->getEmail()?></td>
+                        <td><img src="../../../image/<?php echo $value->getImage()?>" alt="" height='70'></td>
+                        <td><?php echo $value->getAddress()?></td>                        
+                    </tr>
+                <?php endforeach;?>
+                </tbody>
+                <tfoot>                    
+                </tfoot>
+        </table>
+       </div>
+       
     </div>
 
     </div>

@@ -27,9 +27,11 @@
                     <div class="mb-3">
                         <label for="" class="form-label">Nhập vào tên</label>
                         <input type="text"
-                        class="form-control" name="search_value" id="" aria-describedby="helpId" placeholder="">
+                        class="form-control" name="search_value" 
+                        id="" aria-describedby="helpId" placeholder="">
                         <br>
-                        <button type="submit" class="btn btn-primary" name="action" value="search_name">Tìm</button>
+                        <button type="submit" class="btn btn-primary" 
+                        name="action" value="search_name">Tìm</button>
                     </div>        
                 </form> 
             </div>
@@ -52,7 +54,7 @@
                     <td><img src="../image/<?php echo $value['avatar']?>" alt="" ></td>
                     </tr>
                     <?php endforeach;?>
-                
+                   
                 </tbody>
             </table>
         </div>

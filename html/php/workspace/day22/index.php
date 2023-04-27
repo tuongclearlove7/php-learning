@@ -44,21 +44,30 @@
         case 'addcart':         
             
             $id = filter_input(INPUT_POST,'id');//Thông tin dòng 12 ẩn đi trên form
+            //lấy thông tin username
+            $username = $_SESSION['account']['username'];
 
-            if(isset($_SESSION['mycart'])&&(check_session($_SESSION['mycart'],$id))){
-                update_card($_SESSION['mycart'],$id);
+            if(isset($_SESSION['mycart'][$username])&&(checksession($_SESSION['mycart'][$username],$id))){
+                update_cart($_SESSION['mycart'][$username],$id);
+               
             }
             else{
-                $_SESSION['mycart'][] = [ 'id'=> $id,'name'=>$list_product[$id]['name'],'quantity'=>1, 'price'=>$list_product[$id]['price']];
+                $_SESSION['mycart'][$username][] = [ 
+                'id'=> $id,
+                'name'=>$list_product[$id]['name'],
+                'quantity'=>1, 
+                'price'=>$list_product[$id]['price']];
             }                    
             include('homepage.php');
             break;
         case 'mycart':
-            if(isset($_SESSION['mycart'])){
+            $username = $_SESSION['account']['username'];
+            if(isset($_SESSION['mycart'][$username])){
                 include('mycart.php');
             }
             else{
                 echo "Không có mặt hàng nào";
+              //  include('mycart.php');
             }
             break; 
         case 'delete':

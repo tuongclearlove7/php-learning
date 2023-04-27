@@ -16,7 +16,7 @@ $list_student = [
     ['id'=>6,'name'=>'Trung Quốc','IP'=>'098765432','avatar'=>'china.png'],
     ['id'=>7,'name'=>'Bồ Đào Nha','IP'=>'098765432','avatar'=>'bo_dao_nha.png'],
 ];
-
+print_r($list_student);
 $action = filter_input(INPUT_POST,'action'); //Tương đương $_POST['action]
 if(empty($action)){
     $action = filter_input(INPUT_GET,'action'); 
@@ -37,6 +37,7 @@ switch ($action) {
                 $lists[] = $value;
             }
         }
+        print_r($lists);
         include('./UI.php');
         break;
     default:

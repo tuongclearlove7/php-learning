@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login vaof hệ thống</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" >
-
 </head>
 <body>
     <div class="container">
-       
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
           <div class="container">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -60,12 +58,12 @@
                         <th scope="col">Số lượng</th>
                         <th scope="col">Đơn giá</th>
                         <th scope="col">Thành tiền</th>
-                        <th scope="col">Xóa</th>
+                        <th scope="col">Action</th>
                         
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($_SESSION['mycart'] as $key => $value):?>
+                    <?php foreach ($_SESSION['mycart'][$username] as $key => $value):?>
                     <tr class="">
                         <td scope="row"><?php echo $key+1?></td>
                         <td><?php echo $value['name']?></td>
@@ -73,15 +71,13 @@
                         <td><?php echo $value['price']?></td>
                         <td><?php echo $value['quantity']*$value['price']?></td>   
                         <td><a name="action" id="" class="btn btn-primary" href="?action=delete&key=<?php echo $key?>" role="button">Xoá</a></td>                     
-                    </tr>                  
+                    </tr>
                     <?php endforeach;?>
-                   
                     <tr class="">
                         <th scope="row" colspan="4">Tổng tiền</th>                        
-                        <th><?php echo total($_SESSION['mycart'])?></th>   
+                        <th><?php echo total_cart($_SESSION['mycart'][$username])?></th>   
                         <th></th>                     
                     </tr>
-                    
                 </tbody>
             </table>
         </div>

@@ -34,11 +34,11 @@
                 </ul>
                 <form class="d-flex my-2 my-lg-0">
                     <input class="form-control me-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Home</button>
                 </form>
-                <form class="d-flex my-2 my-lg-0 " action="" method="POST">                    
+                <!-- <form class="d-flex my-2 my-lg-0 " action="" method="POST">                    
                     <button class="btn btn-outline-success my-2 my-sm-0" name="action" value="mycart" type="submit">MyCart</button>
-                </form>
+                </form> -->
                 <!-- Hover added -->
                 <a name="action" id="" class="btn btn-primary" href="?action=logout" role="button">Logout</a>                
             </div>
@@ -46,44 +46,40 @@
     </nav>   
     
      <main>
-        <h2>Danh sách các mạt hàng bạn đã chọn mua</h2>
+        <h2>Update Student</h2>
      </main>
-    <div class="list-product">
-        <div class="table-responsive">
-            <table class="table table-primary">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Tên hàng</th>
-                        <th scope="col">Số lượng</th>
-                        <th scope="col">Đơn giá</th>
-                        <th scope="col">Thành tiền</th>
-                        <th scope="col">Action</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($_SESSION['mycart'][$username] as $key => $value):?>
-                    <tr class="">
-                        <td scope="row"><?php echo $key+1?></td>
-                        <td><?php echo $value['name']?></td>
-                        <td><?php echo $value['quantity']?></td>
-                        <td><?php echo $value['price']?></td>
-                        <td><?php echo $value['quantity']*$value['price']?></td>   
-                        <td><a name="action" id="" class="btn btn-primary" href="?action=delete&key=<?php echo $key?>" role="button">Xoá</a></td>                     
-                    </tr>
-                    <?php endforeach;?>
-                    <tr class="">
-                        <th scope="row" colspan="4">Tổng tiền</th>                        
-                        <th><?php echo total_cart($_SESSION['mycart'][$username])?></th>   
-                        <th></th>                     
-                    </tr>
-                </tbody>
-            </table>
+    <div class="add-student">
+    <div class="row">
+       <form action="" method="post" class="col-md-4">
+        <input type="hidden" name='key' value="<?php echo $key?>">
+        <div class="mb-3">
+          <label for="" class="form-label">ID</label>
+          <input type="text" name="id" id="id" value="<?php echo $student['id']?>" readonly class="form-control" placeholder="" aria-describedby="helpId">          
         </div>
-        
+        <div class="mb-3">
+          <label for="" class="form-label">Name</label>
+          <input type="text" name="name" id="name" value="<?php echo $student['name']?>" class="form-control" placeholder="" aria-describedby="helpId">          
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">gioi tinh</label>
+          <input type="text" name="gioitinh" value="<?php echo $student['gioitinh']?>" id="gioitinh" class="form-control" placeholder="" aria-describedby="helpId">          
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Email</label>
+          <input type="text" name="email" value="<?php echo $student['email']?>" id="email" class="form-control" placeholder="" aria-describedby="helpId">          
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Image</label>
+          <input type="text" name="image" value="<?php echo $student['image']?>" id="image" class="form-control" placeholder="" aria-describedby="helpId">          
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Address</label>
+          <input type="text" name="address" value="<?php echo $student['address']?>" id="address" class="form-control" placeholder="" aria-describedby="helpId">          
+        </div>
+        <button type="submit" name="action" value="update_student" class="btn btn-primary">Update</button>
+       </form>       
     </div>
-
+    </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
