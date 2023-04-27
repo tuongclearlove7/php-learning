@@ -1,11 +1,5 @@
 <?php 
-$users = [
 
-    ['username'=>'admin','password'=>'12345'],
-    ['username'=>'tuong','password'=>'12345'],
-    ['username'=>'thao','password'=>'12345'],
-    ['username'=>'mai','password'=>'12345']
-];
 
 $list_users = [
 
@@ -18,7 +12,13 @@ $list_users = [
 ];
 
 
+if(isset($_SESSION['list_users'])){
+    
+    $list_users = $_SESSION['list_users'];
+}else{
+    $list_users =[];
 
+}
 
 
 

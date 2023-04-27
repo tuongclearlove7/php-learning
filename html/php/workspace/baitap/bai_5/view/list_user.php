@@ -59,7 +59,7 @@
                             </ul>
                             <form class="d-flex" role="search" action="" method="POST">
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <a name="action" id="" class="btn btn-primary" href="?action=logout" role="button">Logout</a>                
+                                <a name="action" id="" class="btn btn-primary" href="./user_Controller.php" role="button">Home</a>                
                 
                             </form>
                     </div>
@@ -110,6 +110,8 @@
                             </tr>
                             <?php endforeach;?>
                         <?php endif; ?>
+
+                       
 
                         </tbody>
                     </table>

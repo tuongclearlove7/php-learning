@@ -15,9 +15,6 @@ if(empty($action)){
     }
 }
 
-if(!isset($_SESSION['user'])){
-    $action='check_login';
-} 
 switch ($action) {
     case 'home':
         //gọi view render ra home
@@ -25,31 +22,7 @@ switch ($action) {
 
         require('./view/list_user.php'); 
         break;
-    case 'check_login':
-        //kiem tra login
-        $username = filter_input(INPUT_POST,'username');
-        $password = filter_input(INPUT_POST,'password');           
-        //Nếu tài khoản nhập vào đúng
-        if(check_login($users,$username,$password)){     
-                //Tạo và Lưu session
-            
-                $_SESSION['user'] = [
-                'username'=>$username,
-                'password'=>$password
-            ];           
-            include('./view/list_user.php');      
-            }
-            else{
-            include('./view/login.php');
-            }
-    break;
-    case 'logout':
-        unset($_SESSION['user']);   
-        
-
-        //Quay về trang login
-        include('./view/login.php');
-    break;
+  
     case 'search_name':
         $seach_value = filter_input(INPUT_POST,'search_value');
         $lists = [];
@@ -76,7 +49,6 @@ switch ($action) {
             
                     ];
         $_SESSION['list_users'][$key] =  $user;
-
         $list_users = $_SESSION['list_users'];
         $lists = $list_users;
         include('./view/list_user.php');    
