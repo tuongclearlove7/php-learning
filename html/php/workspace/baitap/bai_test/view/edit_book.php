@@ -36,11 +36,7 @@
                     <input class="form-control me-sm-2" type="text" placeholder="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Home</button>
                 </form>
-                <!-- <form class="d-flex my-2 my-lg-0 " action="" method="POST">                    
-                    <button class="btn btn-outline-success my-2 my-sm-0" name="action" value="mycart" type="submit">MyCart</button>
-                </form> -->
-                <!-- Hover added -->
-                <a name="action" id="" class="btn btn-primary" href="?action=logout" role="button">Logout</a>                
+              
             </div>
       </div>
     </nav>   

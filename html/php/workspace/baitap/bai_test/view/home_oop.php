@@ -61,9 +61,7 @@
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <a name="action" id="" class="btn btn-primary"
                                     href="./bookController.php" role="button">home
-                                    </a>
-                                <!-- <button class="btn btn-outline-success" name="action" value="mycard" type="submit">shop</button> -->
-                                <a name="action" id="" class="btn btn-primary" href="?action=logout" role="button">Logout</a>                
+                                    </a>                          
                             </form>
                     </div>
                 </div>
@@ -73,13 +71,11 @@
                     <div class="mb-3">
                         <label for="" class="form-label">Nhập vào tên sách</label>
                         <input type="text"
-                        class="form-control" name="search_value"
-                         id="" aria-describedby="helpId" placeholder="">
+                        class="form-control" name="search_value" 
+                        id="" aria-describedby="helpId" placeholder="">
                         <br>
-                        <a name="action" id="" class="btn btn-primary"
-                         href="?action=search_book" role="button">Search
-                        </a>                
-                       
+                        <button type="submit" class="btn btn-primary" 
+                        name="action" value="search_name">Tìm</button>
                     </div>        
                 </form> 
                
@@ -99,24 +95,23 @@
                                 </tr>
                             </thead>
                         <tbody>
+                        <?php if (isset($list_obj_book)): ?>
                             <?php foreach ($list_obj_book as $key => $value):?>
-                            <tr>
-                                <th ><?php echo $value -> getBook_id()?></th>
-                                <th ><?php echo $value -> getName()?></th>
-                                <th ><?php echo $value -> getAuthor()?></th>
-                                <th ><?php echo $value -> getPublishyear()?></th>
-                                <th ><img src="../image/<?php echo $value -> getProduction()?>"></th>
-                                <th><a name="action" id="" class="btn btn-primary" 
-                                href="?action=delete&key=<?php echo $key?>" 
-                                role="button">Xóa</a></th>
-                                <th><a name="action" id="" class="btn btn-primary" 
-                                href="?action=edit&key=<?php echo $key?>" 
-                                role="button">Edit</a></th>
-
-                            </tr>
+                                <tr>
+                                    <th ><?php echo $value -> getBook_id()?></th>
+                                    <th ><?php echo $value -> getName()?></th>
+                                    <th ><?php echo $value -> getAuthor()?></th>
+                                    <th ><?php echo $value -> getPublishyear()?></th>
+                                    <th ><img src="../image/<?php echo $value -> getProduction()?>"></th>
+                                    <th><a name="action" id="" class="btn btn-primary" 
+                                    href="?action=delete&key=<?php echo $key?>" 
+                                    role="button">Xóa</a></th>
+                                    <th><a name="action" id="" class="btn btn-primary" 
+                                    href="?action=edit&key=<?php echo $key?>" 
+                                    role="button">Edit</a></th>
+                                </tr>
                             <?php endforeach;?>   
-                    
-                    
+                        <?php endif; ?>
                         </tbody>
                     </table>
                        

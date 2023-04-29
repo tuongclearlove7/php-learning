@@ -74,8 +74,7 @@ main .var h2{
     padding-top: 30px;
     padding-bottom: 30px;
     text-align: start;
-    float: left;
-    width: 50%;
+    width: 500px;
 }
 
 .form-user form{

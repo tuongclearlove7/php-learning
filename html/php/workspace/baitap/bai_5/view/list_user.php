@@ -14,18 +14,6 @@
 </head>
 <body>
     <div class="container">
-            <header>
-            <div class="logo">
-                    <h1>
-                        php learning
-                    </h1>
-                </div>
-
-                <div class="banner">
-                    <img src="../image/php1.png" alt="">
-                </div>
-            </header>
-        
         <main>
 
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -60,12 +48,14 @@
                             <form class="d-flex" role="search" action="" method="POST">
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <a name="action" id="" class="btn btn-primary" href="./user_Controller.php" role="button">Home</a>                
-                
                             </form>
                     </div>
                 </div>
                 </nav>
                 <h1>Home page</h1>
+                
+                <?php require('./view/add_user.php'); ?>
+                <br>
                 <form action="" method="post">
                     <div class="mb-3">
                         <label for="" class="form-label">Nhập vào tên</label>
@@ -77,7 +67,7 @@
                         name="action" value="search_name">Tìm</button>
                     </div>        
                 </form> 
-                
+                <br>
                 <div class="list_student">
                         <table class="table">
                             <thead>
@@ -110,7 +100,7 @@
                             </tr>
                             <?php endforeach;?>
                         <?php endif; ?>
-
+                       
                        
 
                         </tbody>

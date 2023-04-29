@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login vaof hệ thống</title>
+    <title>Login vào hệ thống</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" >
 </head>
 <body>
@@ -32,45 +32,27 @@
                         </div>
                     </li>
                 </ul>
-                <form class="d-flex my-2 my-lg-0">
-                    <input class="form-control me-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Home</button>
-                </form>
+                <form action="" method="POST">
+                    <button class="btn btn-primary" name="action" value="clear_deposit" type="submit">Home</button>
+                </form>             
+                              
             </div>
       </div>
     </nav>   
     
      <main>
-        <h2>Add book</h2>
+        <h2>Deposit</h2>
+        <h4>Số tài khoản đã chuyển : <?php if(isset($_SESSION['deposit']))
+                                            {print_r($_SESSION['deposit'][1]);} ?>
+        </h4>
+        <h4>Số tiền đã gửi : <?php if(isset($_SESSION['deposit']))
+                                            {print_r($_SESSION['deposit'][0]);} ?>
+         <h4>Số tiền còn lại trong tk : <?php if(isset($_SESSION['amount_send'])){ 
+                                                echo $_SESSION['your_amount'] -  $_SESSION['amount_send'];} ?>
+        </h4>
      </main>
-    <div class="add-student">
-      <div class="row">
-        <form action="" method="post" class="col-md-4">
-          <div class="mb-3">
-            <label for="" class="form-label">book_id</label>
-            <input type="text" name="book_id" id="book_id" class="form-control" placeholder="" aria-describedby="helpId">          
-          </div>
-          <div class="mb-3">
-            <label for="" class="form-label">Name</label>
-            <input type="text" name="name" id="name" class="form-control" placeholder="" value="php" aria-describedby="helpId">          
-          </div>
-          <div class="mb-3">
-            <label for="" class="form-label">Author</label>
-            <input type="text" name="author" id="author" class="form-control" placeholder="" value="Tường" aria-describedby="helpId">          
-          </div>
-          <div class="mb-3">
-            <label for="" class="form-label">publishyear</label>
-            <input type="text" name="publishyear" id="publishyear" class="form-control" placeholder="" value="2023" aria-describedby="helpId">          
-          </div>
-          <div class="mb-3">
-            <label for="" class="form-label">product</label>
-            <input type="text" name="production" id="production" class="form-control" placeholder="" value="php-book.png" aria-describedby="helpId">          
-          </div>
-        
-          <button type="submit" name="action" value="save_book" class="btn btn-primary">Save</button>
-        </form>       
-      </div>
-    </div>
+   
+
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>

@@ -11,7 +11,7 @@ $list_users = [
       
 ];
 
-
+//print_r($list_users);
 if(isset($_SESSION['list_users'])){
     
     $list_users = $_SESSION['list_users'];

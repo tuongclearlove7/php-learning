@@ -15,14 +15,9 @@ if(empty($action)){
         $action = 'home';//render ra trang home
     }
 }
-
-  //Nếu không tồn tại session tức người dùng chưa đăng nhập
-if(!isset($_SESSION['user'])){
-    $action='check_login';
-} 
-
+// tạo biến list để lưu dữ liệu
+$list = [];
 //tạo danh sách các đối tượng sinh viên
-$b = new bookDB();
 $list_obj_book = bookDB::get_all_book();
 switch ($action) {
     case 'home':
@@ -30,31 +25,6 @@ switch ($action) {
         include('./view/home_oop.php'); 
           
         break;
-    case 'check_login':
-        //kiem tra login
-        $username = filter_input(INPUT_POST,'username');
-        $password = filter_input(INPUT_POST,'password');           
-        //Nếu tài khoản nhập vào đúng
-        if(check_login($users,$username,$password)){     
-             //Tạo và Lưu session
-            
-             $_SESSION['user'] = [
-                'username'=>$username,
-                'password'=>$password
-            ];           
-            include('./view/home_oop.php');      
-         }
-         else{
-            include('./view/login.php');
-         }
-    break;
-    case 'logout':
-        unset($_SESSION['user']);   
-        
-
-        //Quay về trang login
-        include('./view/login.php');
-    break;
     case 'add_book':
         
         include('view/add_book.php'); 
@@ -69,7 +39,7 @@ switch ($action) {
             'production'=> filter_input(INPUT_POST,'production'),
 
         ];
-
+        print_r($book);
         $_SESSION['books'][] = $book;
         //hiển thị lại danh sách
         //print_r($_SESSION['books']);
@@ -107,19 +77,20 @@ switch ($action) {
         $list_obj_book = bookDB::get_all_book();
         include('./view/home_oop.php');    
         break;
-    case 'search_book':
-        $search_value = filter_input(INPUT_GET, 'search_value');
+    case 'search_name':
+        $search_value = filter_input(INPUT_POST,'search_value');
         echo $search_value;
         $_SESSION['books'] = array_values($_SESSION['books']);
         $books = $_SESSION['books'];
         $list_obj_book = bookDB::get_all_book();
-
+        
         foreach ($list_obj_book as $key => $value) {
             if(strpos($value -> getName(),$search_value)!==false){
-                $list_obj_book = $value;
+                $list[] = $value;
+                
             }
         } 
-        
+        $list_obj_book = $list;
 
         include('./view/home_oop.php'); 
         break;
