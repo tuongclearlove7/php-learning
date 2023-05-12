@@ -32,3 +32,31 @@ select * from products order by listprice desc limit 5, 3;
 select productID, productname, categoryname, listprice from products, categories where categories.categoryid = products.categoryid;
 select productID, productname, categoryname, listprice from products, categories where categories.categoryid = products.categoryid and listprice < 500;
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
