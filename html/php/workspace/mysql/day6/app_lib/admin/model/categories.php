@@ -1,9 +1,9 @@
 <?php
-    function get_categories(){
+    function getDataModel(){
         global $db;
         try {
-            //Chuẩn bị câu lệnh truy vấn
-            $query = 'SELECT * FROM categories';
+            //thực hiện câu lệnh truy vấn
+            $query = 'select * from categories';
             $statement = $db->prepare($query);
             //Thực thi câu lệnh truy vấn
             $statement->execute();
@@ -13,15 +13,13 @@
             return $result;
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            echo "<p>Truy vấn thất bại, kiểm tra lại lỗi truy vấn : $error_message </p>";
-        }
+            echo $error_message;        }
     }
 
-    function get_category_by_id($category_id){
+    function get_data_by_id($category_id){
         global $db;
         try {
-            //Chuẩn bị câu lệnh truy vấn
-            $query = 'SELECT * FROM categories WHERE category_id=:category_id';
+            $query = 'select * from categories where category_id=:category_id';
             $statement = $db->prepare($query);
             //Gán tham số cho câu lệnh truy vấn
             $statement->bindValue(':category_id',$category_id);
@@ -33,16 +31,15 @@
             return $result;
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            echo "<p>Truy vấn thất bại, kiểm tra lại lỗi truy vấn : $error_message </p>";
-        }
+            echo $error_message;        }
     }
 
-    function add_category($category){
+    function add_data($category){
         global $db;
         try {
-            //Chuẩn bị câu lệnh truy vấn
-            $query = "INSERT INTO categories(category_id, category_name, more_info)
-                      VALUES(:category_id, :category_name, :more_info)";
+            //câu lệnh truy vấn
+            $query = "insert into categories(category_id, category_name, more_info)
+                      values(:category_id, :category_name, :more_info)";
             $statement = $db->prepare($query);
             //Gán tham số cho câu lệnh truy vấn
             $statement->bindValue(':category_id',$category['category_id']);
@@ -50,22 +47,22 @@
             $statement->bindValue(':more_info',$category['more_info']);
             //Thực thi câu lệnh truy vấn
             $statement->execute();    
-            $statement->closeCursor(); //ĐÓNG TRUY VẤN LẠI         
+            //đóng truy vấn 
+            $statement->closeCursor();        
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            echo "<p>Truy vấn thất bại, kiểm tra lại lỗi truy vấn : $error_message </p>";
-        }
+            echo $error_message;        }
     }
 
-    // Hàm cập nhật category
-    function update_category($category){
+    // Hàm cập nhật 
+    function update_data($category){
         global $db;
         try {
             //Chuẩn bị câu lệnh truy vấn
-            $query = 'UPDATE categories
-                      SET category_name = :category_name,
+            $query = 'update categories
+                      set category_name = :category_name,
                           more_info = :more_info
-                    WHERE category_id = :category_id';
+                      where category_id = :category_id';
             $statement = $db->prepare($query);
             //Gán tham số
             $statement->bindValue(':category_id',$category['category_id']);
@@ -76,16 +73,15 @@
             $statement->closeCursor(); //ĐÓNG TRUY VẤN LẠI         
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            echo "<p>Truy vấn thất bại, kiểm tra lại lỗi truy vấn : $error_message </p>";
-        }
+            echo $error_message;        }
     }
-    //Hàm xoá thể loại
-    function delete_category($category_id){
+    //Hàm xoá 
+    function delete_data($category_id){
         global $db;
         try {
             //Chuẩn bị câu lệnh truy vấn
-            $query = 'DELETE FROM categories
-                      WHERE category_id = :category_id';
+            $query = 'delete from categories
+                      where category_id = :category_id';
             $statement = $db->prepare($query);
             //Gán tham số
             $statement->bindValue(':category_id',$category_id);
@@ -94,7 +90,7 @@
             $statement->closeCursor(); //ĐÓNG TRUY VẤN LẠI         
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            echo "<p>Truy vấn thất bại, kiểm tra lại lỗi truy vấn : $error_message </p>";
+            echo $error_message;
         }
     }
 ?>

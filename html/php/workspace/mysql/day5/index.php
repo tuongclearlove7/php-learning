@@ -1,6 +1,6 @@
 <?php
-include('./connect_mysql.php');
-include('./data_model.php');
+include('connect_mysql.php');
+include('data_model.php');
 
 //Lấy action từ phía người dùng
 $action = filter_input(INPUT_POST,'action');
@@ -14,51 +14,50 @@ if(empty($action)){
 switch ($action) {
     case 'list_categories':
         $data = getDataModel();
-        include('./view_list_categories.php');
+        include('view_list_data.php');
         break;
-    case 'show_category':
+    case 'show_data':
         $category_id = filter_input(INPUT_GET,'category_id');
         $category = get_data_by_id( $category_id);
-        include('./view_category.php');
-        break;  
-    case 'add_data_form':
-        include('./form_add.php');
+        include('view_category.php');
         break;  
     case 'add_data':
-        //Lấy thông tin thể loại từ form nhập liệu của người dùng
+        include('add_data.php');
+        break;  
+    case 'save_data':
+        //Lấy thông tin từ form nhập liệu của người dùng
         $category['category_id'] = filter_input(INPUT_POST,'category_id');
         $category['category_name'] = filter_input(INPUT_POST,'category_name');
         $category['more_info'] = filter_input(INPUT_POST,'more_info');
-        //Gọi hàm add_data($category) để thêm thể loại vào bảng csdl
+        //Gọi hàm  để thêm thể loại vào bảng csdl
         add_data($category);
 
-        //Lấy dữ liệu từ bảng  và in ra màn hình
+        //Lấy dữ liệu từ bảng và in ra màn hình
         $data = getDataModel();
-        include('./view_list_categories.php');
+        include('view_list_data.php');
         break;
-    case 'edit_data':
+    case 'edit':
         $category_id = filter_input(INPUT_GET,'category_id');
         $category = get_data_by_id($category_id);
-        //print_r($category);
-        include('./edit.php');
-        break;  
+        include('edit_data.php');
+        break;
     case 'update_data':
-        //lấy dữ liệu từ form
+        //Lấy tất cả dữ liệu từ form edit 
         $category['category_id'] = filter_input(INPUT_POST,'category_id');
         $category['category_name'] = filter_input(INPUT_POST,'category_name');
         $category['more_info'] = filter_input(INPUT_POST,'more_info');
-        // call fuction to update 
+        //Gọi hàm cập nhật 
         update_data($category);
-        //show new data
         $data = getDataModel();
-        include('./view_list_categories.php');
-    break;  
-    case 'detele':
+        include('view_list_data.php');
+        break;
+    case 'delete':
         $category_id = filter_input(INPUT_GET,'category_id');
+        //Gọi hàm delete
         delete_data($category_id);
         $data = getDataModel();
-        include('./view_list_categories.php');
-    break;  
+        include('view_list_data.php');
+        break;
     default:
         # code...
         break;

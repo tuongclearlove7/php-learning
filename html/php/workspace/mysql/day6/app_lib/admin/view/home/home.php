@@ -10,10 +10,9 @@
 <body>
     <div class="container">
 
-    <?php require('./view/home/header.php');?>
+        <?php require('./view/home/header.php');?>
         <main>
         <?php require('./view/home/content.php');?>
-           
         <hr>
         </main>
         <?php require('./view/home/footer.php');?>

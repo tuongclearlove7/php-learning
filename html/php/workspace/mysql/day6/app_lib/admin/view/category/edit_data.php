@@ -24,7 +24,7 @@
                 <label for="" class="form-label">Thông tin mô tả</label>
                 <input type="text" name="more_info" value="<?php echo $category['more_info']?>" id="" class="form-control" placeholder="Thông tin bổ sung" aria-describedby="helpId">              
                 </div>
-                <button type="submit" name="action" value="update_category" class="btn btn-primary">Cập nhật thể loại</button>
+                <button type="submit" name="action" value="update_data" class="btn btn-primary">Update</button>
             </form>
          </div>
     </div>

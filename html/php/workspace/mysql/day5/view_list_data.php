@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-   <a class="btn btn-primary" href="?action=add_category_form" role="button">Thêm mới</a>
+   <a class="btn btn-primary" href="?action=add_data" role="button">Thêm mới</a>
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -23,14 +23,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($categories as $key => $value):?>
+                    <?php foreach ($data as $key => $value):?>
                     <tr class="">
                         <td ><?php echo $value['category_id']?></td>
                         <td><?php echo $value['category_name']?></td>
                         <td><?php echo $value['more_info']?></td>
-                        <td><a href="?action=showcategory&category_id=<?php echo $value['category_id']?>"><button type="button" class="btn btn-primary">Show</button></a></td>
+                        <td><a href="?action=show_data&category_id=<?php echo $value['category_id']?>"><button type="button" class="btn btn-primary">Show</button></a></td>
                         <td><a href="?action=edit&category_id=<?php echo $value['category_id']?>">
-                                <button type="button" class="btn btn-success">Edit</button>
+                                <button type="button" class="btn btn-dark">Edit</button>
                             </a></td>
                         <td><a href="?action=delete&category_id=<?php echo $value['category_id']?>">
                             <button type="button" class="btn btn-danger">Delete</button>

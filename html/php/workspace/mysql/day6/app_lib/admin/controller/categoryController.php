@@ -1,8 +1,5 @@
-<?php 
 
-
-include('./model/database.php');
-include('./model/categories.php');
+<?php
 
 
 //Lấy action từ phía người dùng
@@ -13,57 +10,55 @@ if(empty($action)){
         $action = 'list_categories';
     }
 }
-//Thực hiện điều hướng bằng switch case
+//Thực hiện điều hướng 
 switch ($action) {
     case 'list_categories':
-        $categories = get_categories();
+        $data = getDataModel();
         include('./view/category/list_categories.php');
         break;
-    case 'showcategory':
+    case 'show_data':
         $category_id = filter_input(INPUT_GET,'category_id');
-        $category = get_category_by_id( $category_id);
+        $category = get_data_by_id( $category_id);
         include('./view/category/category.php');
         break;  
-    case 'add_category_form':
-        include('./view/category/add_category_form.php');
+    case 'add_data':
+        include('./view/category/add_data.php');
         break;  
-    case 'save_category':
-        //Lấy thông tin thể loại từ form nhập liệu của người dùng
+    case 'save_data':
+        //Lấy thông tin từ form nhập liệu của người dùng
         $category['category_id'] = filter_input(INPUT_POST,'category_id');
         $category['category_name'] = filter_input(INPUT_POST,'category_name');
         $category['more_info'] = filter_input(INPUT_POST,'more_info');
-        //Gọi hàm add_category($category) để thêm thể loại vào bảng csdl
-        add_category($category);
+        //Gọi hàm  để thêm thể loại vào bảng csdl
+        add_data($category);
 
-        //Lấy dữ liệu từ bảng categories và in ra màn hình
-        $categories = get_categories();
+        //Lấy dữ liệu từ bảng và in ra màn hình
+        $data = getDataModel();
         include('./view/category/list_categories.php');
         break;
     case 'edit':
         $category_id = filter_input(INPUT_GET,'category_id');
-        $category = get_category_by_id($category_id);
-        include('./view/category/edit_category.php');
+        $category = get_data_by_id($category_id);
+        include('./view/category/edit_data.php');
         break;
-    case 'update_category':
-        //Lấy tất cả dữ liệu từ form edit category
+    case 'update_data':
+        //Lấy tất cả dữ liệu từ form edit
         $category['category_id'] = filter_input(INPUT_POST,'category_id');
         $category['category_name'] = filter_input(INPUT_POST,'category_name');
         $category['more_info'] = filter_input(INPUT_POST,'more_info');
-        //Gọi hàm cập nhật category
-        update_category($category);
-        //Hiển thị danh sách categories mới cập nhật ra màn hình
-        $categories = get_categories();
+        //Gọi hàm cập nhật 
+        update_data($category);
+        $data = getDataModel();
         include('./view/category/list_categories.php');
         break;
     case 'delete':
-        //Lấy category_id từ giao diện nút delete
         $category_id = filter_input(INPUT_GET,'category_id');
-        //Gọi hàm delete_category
-        delete_category($category_id);
-        //Hiển thị danh sách categories mới cập nhật ra màn hình
-        $categories = get_categories();
+        //Gọi hàm delete
+        delete_data($category_id);
+        $data = getDataModel();
         include('./view/category/list_categories.php');
         break;
+   
     default:
         # code...
         break;
@@ -73,4 +68,6 @@ switch ($action) {
 
 
 ?>
+
+
 

@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <a href="."><button type="button" class="btn btn-primary">Home Category</button></a>
+        <a href="?controller=categoryController"><button type="button" class="btn btn-primary">Home</button></a>
        <h5>Mã thể loại: <?php echo $category['category_id']?></h5>    
        <h5>Tên thể loại:<?php echo $category['category_name']?></h5> 
        <h5>Thông tin thể loại: </h5> 
