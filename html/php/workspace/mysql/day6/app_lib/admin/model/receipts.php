@@ -86,10 +86,8 @@
             $db = Database::getDB();
             try {
                 //Chuẩn bị câu lệnh truy vấn
-                $query = 'DELETE FROM categoríes
-                          WHERE category_id = :category_id;
-                          DELETE FROM books
-                          WHERE category_id = :category_id';
+                $query = 'delete from categories
+                          where category_id = :category_id';
                 $statement = $db->prepare($query);
                 //Gán tham số
                 $statement->bindValue(':category_id',$category_id);

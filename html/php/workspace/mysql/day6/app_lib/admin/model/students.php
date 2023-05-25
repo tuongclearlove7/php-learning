@@ -1,12 +1,11 @@
 <?php
 
-    class categoryDB{
-
+    class studentDB{
         public static function  getDataModel(){
             $db = Database::getDB();
             try {
                 //thực hiện câu lệnh truy vấn
-                $query = 'select * from categories';
+                $query = 'select * from students';
                 $statement = $db->prepare($query);
                 //Thực thi câu lệnh truy vấn
                 $statement->execute();
@@ -20,13 +19,13 @@
             }
         }
 
-        public static function get_data_by_id($category_id){
+        public static function get_data_by_id($card_id){
             $db = Database::getDB();
             try {
-                $query = 'select * from categories where category_id=:category_id';
+                $query = 'select * from students where card_id=:card_id';
                 $statement = $db->prepare($query);
                 //Gán tham số cho câu lệnh truy vấn
-                $statement->bindValue(':category_id',$category_id);
+                $statement->bindValue(':card_id',$card_id);
                 //Thực thi câu lệnh truy vấn
                 $statement->execute();
                 //Lấy một mẫu tin thoả mãn điều kiện truy vấn
@@ -39,17 +38,18 @@
             }
         }
     
-        public static function add_data($category){
+        public static function add_data($student){
             $db = Database::getDB();
             try {
                 //câu lệnh truy vấn
-                $query = "insert into categories(category_id, category_name, more_info)
-                          values(:category_id, :category_name, :more_info)";
+                $query = "insert into students(card_id, name_student, address, tel)
+                          values(:card_id, :name_student, :address, :tel)";
                 $statement = $db->prepare($query);
                 //Gán tham số cho câu lệnh truy vấn
-                $statement->bindValue(':category_id',$category['category_id']);
-                $statement->bindValue(':category_name',$category['category_name']);
-                $statement->bindValue(':more_info',$category['more_info']);
+                $statement->bindValue(':card_id',$student['card_id']);
+                $statement->bindValue(':name_student',$student['name_student']);
+                $statement->bindValue(':address',$student['address']);
+                $statement->bindValue(':tel',$student['tel']);
                 //Thực thi câu lệnh truy vấn
                 $statement->execute();    
                 //đóng truy vấn 
@@ -61,41 +61,41 @@
         }
     
         // Hàm cập nhật 
-        public static function update_data($category){
+        public static function update_data($student){
             $db = Database::getDB();
             try {
                 //Chuẩn bị câu lệnh truy vấn
-                $query = 'update categories
-                          set category_name = :category_name,
-                              more_info = :more_info
-                          where category_id = :category_id';
+                $query = 'update students
+                          set name_student = :name_student,
+                          address = :address,
+                          tel = :tel
+                          where card_id = :card_id';
                 $statement = $db->prepare($query);
                 //Gán tham số
-                $statement->bindValue(':category_id',$category['category_id']);
-                $statement->bindValue(':category_name',$category['category_name']);
-                $statement->bindValue(':more_info',$category['more_info']);
+                $statement->bindValue(':card_id',$student['card_id']);
+                $statement->bindValue(':name_student',$student['name_student']);
+                $statement->bindValue(':address',$student['address']);
+                $statement->bindValue(':tel',$student['tel']);
                 //Thực thi câu lệnh truy vấn
-                $statement->execute();  
-                $statement->closeCursor();          
+                $statement->execute();    
+                $statement->closeCursor();         
             } catch (PDOException $e) {
                 $error_message = $e->getMessage();
                 echo $error_message;        }
         }
         //Hàm xoá 
-        public static function delete_data($category_id){
+        public static function delete_data($card_id){
             $db = Database::getDB();
             try {
                 //Chuẩn bị câu lệnh truy vấn
-                $query = 'DELETE FROM categoríes
-                          WHERE category_id = :category_id;
-                          DELETE FROM books
-                          WHERE category_id = :category_id';
+                $query = 'delete from students
+                          where card_id = :card_id';
                 $statement = $db->prepare($query);
                 //Gán tham số
-                $statement->bindValue(':category_id',$category_id);
+                $statement->bindValue(':card_id',$card_id);
                 //Thực thi câu lệnh truy vấn
                 $statement->execute();    
-                $statement->closeCursor();          
+                $statement->closeCursor();      
             } catch (PDOException $e) {
                 $error_message = $e->getMessage();
                 echo $error_message;

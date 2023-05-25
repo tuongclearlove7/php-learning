@@ -1,18 +1,29 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=libmanagement';
-    $username='root';
-    $password = '';
-    $option = array(
+    class Database{
+        private static $dm = 'mysql:host=localhost;dbname=libmanagement';
+        private static $username='root';
+        private static $password = '';
+        private static $option = array(
                  PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                  PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
               );
-
-    //Thực hiện kết nối đến cơ sở dữ liệu
-    try {
-        $db = new PDO ($dsn, $username, $password, $option);
-        // echo "<p>Bạn đã kết nối thành công đến cơ sở dữ liệu libmanagement</p>";
-    } catch (PDOException $e) {
-        $error_message = $e->getMessage();
-        echo "<p>Kết nối thất bại, kiểm tra lại lỗi kết nối : $error_message </p>";
+        private static $db;
+        public static function getDB(){
+            if(!isset(self::$db)){
+                try {
+                    self::$db = new PDO (
+                                self::$dm,
+                                self::$username,
+                                self::$password,
+                                self::$option  
+                    );
+                } catch (PDOException $e) {
+                    $error_message = $e->getMessage();
+                    echo $error_message;
+                    exit();
+                }
+            }
+            return self::$db;
+        }
     }
 ?>

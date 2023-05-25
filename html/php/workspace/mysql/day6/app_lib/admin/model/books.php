@@ -1,12 +1,12 @@
 <?php
 
-    class categoryDB{
+    class bookDB{
 
         public static function  getDataModel(){
             $db = Database::getDB();
             try {
                 //thực hiện câu lệnh truy vấn
-                $query = 'select * from categories';
+                $query = 'select * from books';
                 $statement = $db->prepare($query);
                 //Thực thi câu lệnh truy vấn
                 $statement->execute();
@@ -20,13 +20,13 @@
             }
         }
 
-        public static function get_data_by_id($category_id){
+        public static function get_data_by_id($book_id){
             $db = Database::getDB();
             try {
-                $query = 'select * from categories where category_id=:category_id';
+                $query = 'select * from books where book_id=:book_id';
                 $statement = $db->prepare($query);
                 //Gán tham số cho câu lệnh truy vấn
-                $statement->bindValue(':category_id',$category_id);
+                $statement->bindValue(':book_id',$book_id);
                 //Thực thi câu lệnh truy vấn
                 $statement->execute();
                 //Lấy một mẫu tin thoả mãn điều kiện truy vấn
@@ -39,17 +39,24 @@
             }
         }
     
-        public static function add_data($category){
+        public static function add_data($book){
             $db = Database::getDB();
             try {
                 //câu lệnh truy vấn
-                $query = "insert into categories(category_id, category_name, more_info)
-                          values(:category_id, :category_name, :more_info)";
+                $query = "insert into books(book_id, name_book, publisher, author, category_id, num_of_page, max_date, num, summary, picture)
+                          values(:book_id, :name_book, :publisher, :author, :category_id, :num_of_page, :max_date, :num, :summary, :picture)";
                 $statement = $db->prepare($query);
                 //Gán tham số cho câu lệnh truy vấn
-                $statement->bindValue(':category_id',$category['category_id']);
-                $statement->bindValue(':category_name',$category['category_name']);
-                $statement->bindValue(':more_info',$category['more_info']);
+                $statement->bindValue(':book_id',$book['book_id']);
+                $statement->bindValue(':name_book',$book['name_book']);
+                $statement->bindValue(':publisher',$book['publisher']);
+                $statement->bindValue(':author',$book['author']);
+                $statement->bindValue(':category_id',$book['category_id']);
+                $statement->bindValue(':num_of_page',$book['num_of_page']);
+                $statement->bindValue(':max_date',$book['max_date']);
+                $statement->bindValue(':num',$book['num']);
+                $statement->bindValue(':summary',$book['summary']);
+                $statement->bindValue(':picture',$book['picture']);
                 //Thực thi câu lệnh truy vấn
                 $statement->execute();    
                 //đóng truy vấn 
@@ -59,21 +66,37 @@
                 echo $error_message;        
             }
         }
+
+        
     
         // Hàm cập nhật 
-        public static function update_data($category){
+        public static function update_data($book){
             $db = Database::getDB();
             try {
-                //Chuẩn bị câu lệnh truy vấn
-                $query = 'update categories
-                          set category_name = :category_name,
-                              more_info = :more_info
-                          where category_id = :category_id';
+        
+                $query = 'UPDATE books
+                          SET name_book = :name_book,
+                              publisher = :publisher,
+                              author = :author,
+                              category_id = :category_id,
+                              num_of_page = :num_of_page,
+                              max_date = :max_date,
+                              num = :num,
+                              summary = :summary,
+                              picture = :picture
+                           WHERE book_id = :book_id';
                 $statement = $db->prepare($query);
                 //Gán tham số
-                $statement->bindValue(':category_id',$category['category_id']);
-                $statement->bindValue(':category_name',$category['category_name']);
-                $statement->bindValue(':more_info',$category['more_info']);
+                $statement->bindValue(':book_id',$book['book_id']);
+                $statement->bindValue(':name_book',$book['name_book']);
+                $statement->bindValue(':publisher',$book['publisher']);
+                $statement->bindValue(':author',$book['author']);
+                $statement->bindValue(':category_id',$book['category_id']);
+                $statement->bindValue(':num_of_page',$book['num_of_page']);
+                $statement->bindValue(':max_date',$book['max_date']);
+                $statement->bindValue(':num',$book['num']);
+                $statement->bindValue(':summary',$book['summary']);
+                $statement->bindValue(':picture',$book['picture']);
                 //Thực thi câu lệnh truy vấn
                 $statement->execute();  
                 $statement->closeCursor();          
@@ -82,17 +105,17 @@
                 echo $error_message;        }
         }
         //Hàm xoá 
-        public static function delete_data($category_id){
+        public static function delete_data($book_id){
             $db = Database::getDB();
             try {
                 //Chuẩn bị câu lệnh truy vấn
-                $query = 'DELETE FROM categoríes
-                          WHERE category_id = :category_id;
+                $query = "DELETE FROM receipts
+                          WHERE book_id = :book_id;
                           DELETE FROM books
-                          WHERE category_id = :category_id';
+                          WHERE book_id = :book_id";
                 $statement = $db->prepare($query);
                 //Gán tham số
-                $statement->bindValue(':category_id',$category_id);
+                $statement->bindValue(':book_id',$book_id);
                 //Thực thi câu lệnh truy vấn
                 $statement->execute();    
                 $statement->closeCursor();          

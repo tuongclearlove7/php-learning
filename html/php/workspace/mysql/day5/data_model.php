@@ -13,7 +13,8 @@
             return $result;
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            echo $error_message;        }
+            echo $error_message;        
+        }
     }
 
     function get_data_by_id($category_id){
@@ -31,7 +32,8 @@
             return $result;
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            echo $error_message;        }
+            echo $error_message;        
+        }
     }
 
     function add_data($category){
@@ -51,7 +53,8 @@
             $statement->closeCursor();        
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            echo $error_message;        }
+            echo $error_message;        
+        }
     }
 
     // Hàm cập nhật 
@@ -70,10 +73,11 @@
             $statement->bindValue(':more_info',$category['more_info']);
             //Thực thi câu lệnh truy vấn
             $statement->execute();    
-            $statement->closeCursor(); //ĐÓNG TRUY VẤN LẠI         
+            $statement->closeCursor();   
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
-            echo $error_message;        }
+            echo $error_message;        
+        }
     }
     //Hàm xoá 
     function delete_data($category_id){
@@ -87,7 +91,7 @@
             $statement->bindValue(':category_id',$category_id);
             //Thực thi câu lệnh truy vấn
             $statement->execute();    
-            $statement->closeCursor(); //ĐÓNG TRUY VẤN LẠI         
+            $statement->closeCursor();      
         } catch (PDOException $e) {
             $error_message = $e->getMessage();
             echo $error_message;

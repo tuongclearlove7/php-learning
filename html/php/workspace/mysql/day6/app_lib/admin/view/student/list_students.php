@@ -1,13 +1,14 @@
 <?php require('./view/home/header.php');?>
     <div class="container">
-        <a class="btn btn-primary" href="?controller=categoryController&action=add_data" role="button">Thêm mới</a>
+        <a class="btn btn-primary" href="?controller=studentController&action=add_data" role="button">Thêm mới</a>
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Category ID</th>
-                        <th scope="col">Category Name</th>
-                        <th scope="col">More information</th>
+                        <th scope="col">card ID</th>
+                        <th scope="col"> Name student</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Tel</th>
                         <th scope="col">Detail</th>
                         <th scope="col" colspan='2'>Action</th>
                         
@@ -16,15 +17,16 @@
                 <tbody>
                     <?php foreach ($data as $key => $value):?>
                     <tr class="">
-                        <td ><?php echo $value['category_id']?></td>
-                        <td><?php echo $value['category_name']?></td>
-                        <td><?php echo $value['more_info']?></td>
-                        <td><a href="?controller=categoryController&action=show_data&category_id=<?php echo $value['category_id']?>">
+                        <td ><?php echo $value['card_id']?></td>
+                        <td><?php echo $value['name_student']?></td>
+                        <td><?php echo $value['address']?></td>
+                        <td><?php echo $value['tel']?></td>
+                        <td><a href="?controller=studentController&action=show_data&card_id=<?php echo $value['card_id']?>">
                                 <button type="button" class="btn btn-primary">Show</button></a></td>
-                        <td><a href="?controller=categoryController&action=edit&category_id=<?php echo $value['category_id']?>">
+                        <td><a href="?controller=studentController&action=edit&card_id=<?php echo $value['card_id']?>">
                                 <button type="button" class="btn btn-dark">Edit</button>
                             </a></td>
-                        <td><a href="?controller=categoryController&action=delete&category_id=<?php echo $value['category_id']?>">
+                        <td><a href="?controller=studentController&action=delete&card_id=<?php echo $value['card_id']?>">
                             <button type="button" class="btn btn-danger">Delete</button>
                         </a></td>
                     </tr>  
