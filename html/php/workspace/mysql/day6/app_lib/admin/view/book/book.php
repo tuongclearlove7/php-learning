@@ -10,6 +10,6 @@
        <h5>num : <?php echo $book['num']?></h5>    
        <h5>summary : <?php echo $book['summary']?></h5>        
        <h5>Picture</h5>
-       <img src="./public/image/<?php echo $book['picture']?>" alt="ảnh">        
+       <img width="400px" height="350px" src="./public/image/<?php echo $book['picture']?>" alt="ảnh">        
     </div>
 <?php require('./view/home/footer.php');?>

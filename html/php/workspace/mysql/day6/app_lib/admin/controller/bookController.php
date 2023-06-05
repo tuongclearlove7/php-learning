@@ -80,8 +80,6 @@ switch ($action) {
                 echo "Upload ảnh thất bại";
             }
             $book['picture'] = $_FILES['picture']['name'];
-
-            print_r($book['picture']);
         } else {
             // Xử lý khi không có tệp tin được tải lên
             $book['picture'] = filter_input(INPUT_POST, 'old_picture');

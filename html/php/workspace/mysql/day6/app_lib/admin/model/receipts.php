@@ -1,12 +1,12 @@
 <?php
 
-    class categoryDB{
+    class receiptDB{
 
         public static function  getDataModel(){
             $db = Database::getDB();
             try {
                 //thực hiện câu lệnh truy vấn
-                $query = 'select * from categories';
+                $query = 'select * from receipts';
                 $statement = $db->prepare($query);
                 //Thực thi câu lệnh truy vấn
                 $statement->execute();
@@ -20,13 +20,13 @@
             }
         }
 
-        public static function get_data_by_id($category_id){
+        public static function get_data_by_id($card_id){
             $db = Database::getDB();
             try {
-                $query = 'select * from categories where category_id=:category_id';
+                $query = 'select * from receipts where card_id=:card_id';
                 $statement = $db->prepare($query);
                 //Gán tham số cho câu lệnh truy vấn
-                $statement->bindValue(':category_id',$category_id);
+                $statement->bindValue(':card_id',$card_id);
                 //Thực thi câu lệnh truy vấn
                 $statement->execute();
                 //Lấy một mẫu tin thoả mãn điều kiện truy vấn

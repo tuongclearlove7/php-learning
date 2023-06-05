@@ -32,7 +32,7 @@
                         <td><?php echo $value['max_date']?></td>
                         <td><?php echo $value['num']?></td>
                         <td><?php echo $value['summary']?></td>
-                        <td><img style="height: 50px; width:50px;" src="./public/image/<?php echo $value['picture']?>" alt=""></td>
+                        <td><img style="height: 100px; width:100px;" src="./public/image/<?php echo $value['picture']?>" alt=""></td>
                         <td><a href="?controller=bookController&action=show_data&book_id=<?php echo $value['book_id']?>">
                                 <button type="button" class="btn btn-primary">Show</button></a></td>
                         <td><a href="?controller=bookController&action=edit&book_id=<?php echo $value['book_id']?>">

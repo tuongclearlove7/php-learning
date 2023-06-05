@@ -1,26 +1,26 @@
 
 <?php
 include('./model/database.php');
-include('./model/categories.php');
+include('./model/receipts.php');
 
 //Lấy action từ phía người dùng
 $action = filter_input(INPUT_POST,'action');
 if(empty($action)){
     $action = filter_input(INPUT_GET,'action');
     if(empty($action)){
-        $action = 'list_categories';
+        $action = 'list_receipts';
     }
 }
 //Thực hiện điều hướng 
 switch ($action) {
-    case 'list_categories':
-        $data = categoryDB::getDataModel();
-        include('./view/category/list_categories.php');
+    case 'list_receipts':
+        $data = receiptDB::getDataModel();
+        include('./view/receipt/list_receipts.php');
         break;
     case 'show_data':
-        $category_id = filter_input(INPUT_GET,'category_id');
-        $category = CategoryDB::get_data_by_id( $category_id);
-        include('./view/category/category.php');
+        $card_id = filter_input(INPUT_GET,'card_id');
+        $receipt = receiptDB::get_data_by_id( $card_id);
+        include('./view/receipt/receipt.php');
         break;  
     case 'add_data':
         include('./view/category/add_data.php');

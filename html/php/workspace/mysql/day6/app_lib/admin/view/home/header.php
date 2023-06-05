@@ -12,7 +12,7 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="./">Navbar</a>
+                <a class="navbar-brand" href="./">WEBSITE</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -31,12 +31,12 @@
                             <a class="nav-link" href="?controller=studentController">Quản lý sinh viên</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Quản lý mượn sách</a>
+                            <a class="nav-link" href="?controller=receiptController">Quản lý mượn sách</a>
                         </li>
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Dropdown
-                        </a>
+                        </a>                        
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Action</a></li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -44,7 +44,9 @@
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                         </li>
-                    
+                        <li class="nav-item">
+                            <a class="btn btn-primary" href="?controller=loginController&action=logout">Đăng xuất</a>
+                        </li>
                     </ul>
             
                 </div>
